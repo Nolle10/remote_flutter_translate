@@ -1,6 +1,6 @@
 name: remote_flutter_translate
 description: Remote Flutter Translate is a fully featured localization / internationalization (i18n) library for Flutter.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/Nolle10/remote_flutter_translate
 
 environment:
