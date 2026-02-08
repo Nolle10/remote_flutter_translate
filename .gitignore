@@ -18,7 +18,7 @@
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
 # is commented out by default.
-#.vscode/
+.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -75,3 +75,6 @@ pubspec.lock
 example_static_keys/lib/generated_plugin_registrant.dart
 example_static_keys/.flutter-plugins-dependencies
 example/lib/generated_plugin_registrant.dart
+
+# FVM Version Cache
+.fvm/

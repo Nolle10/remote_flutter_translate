@@ -1,31 +1,23 @@
-import 'dart:html' as html;
+import 'package:http/http.dart' as http;
 
-Future<String?> fetchRemoteString(String url, {Map<String, String>? headers}) async
-{
-    try
-    {
-        final request = await html.HttpRequest.request(
-            url,
-            method: 'GET',
-            requestHeaders: headers,
-        );
+Future<String?> fetchRemoteString(String url,
+    {Map<String, String>? headers}) async {
+  try {
+    final response = await http.get(
+      Uri.parse(url),
+      headers: headers,
+    );
 
-        final status = request.status ?? 0;
-
-        if (status < 200 || status >= 300)
-        {
-            return null;
-        }
-
-        return request.responseText;
+    if (response.statusCode < 200 || response.statusCode >= 300) {
+      return null;
     }
-    catch (_) 
-    {
-        return null;
-    }
+
+    return response.body;
+  } catch (_) {
+    return null;
+  }
 }
 
-Future<String?> readLocalFile(String path)
-{
-    throw UnsupportedError('Local file overrides are not supported on web.');
+Future<String?> readLocalFile(String path) {
+  throw UnsupportedError('Local file overrides are not supported on web.');
 }

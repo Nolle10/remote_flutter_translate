@@ -6,3 +6,7 @@
 
 - Remove _localeFromString
 - Remove unnecessary imports
+
+## [1.0.2]
+
+- Migrate from deprecated `dart:html` to `package:http` for HTTP requests
