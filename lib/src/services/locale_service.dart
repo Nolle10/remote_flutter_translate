@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:ui';
-import 'package:flutter_translate/flutter_translate.dart';
+import 'package:remote_flutter_translate/remote_flutter_translate.dart';
+import 'translation_overrides.dart';
 
 import 'locale_file_service.dart';
 
@@ -45,14 +46,35 @@ class LocaleService
         return existing;
     }
 
-    static Future<Map<String, dynamic>> getLocaleContent(Locale locale, Map<Locale, String> supportedLocales) async
+    static Future<Map<String, dynamic>> getLocaleContent(
+        Locale locale,
+        Map<Locale, String> supportedLocales, {
+        TranslationOverrides? overrides,
+    }) async
     {
-        var file = supportedLocales[locale];
+        String? content;
 
-        if (file == null) return {};
+        if (overrides != null)
+        {
+            try
+            {
+                content = await overrides.load(locale);
+            }
+            catch (_)
+            {
+                content = null;
+            }
+        }
 
-        var content = await LocaleFileService.getLocaleContent(file);
-        
+        if (content == null)
+        {
+            var file = supportedLocales[locale];
+
+            if (file == null) return {};
+
+            content = await LocaleFileService.getLocaleContent(file);
+        }
+
         if (content == null) return {};
 
         return json.decode(content);

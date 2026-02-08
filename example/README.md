@@ -1,3 +1,3 @@
 # example
 
-Example project for the flutter_translate library
+Example project for the remote_flutter_translate library

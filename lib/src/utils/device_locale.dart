@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
-import 'package:universal_io/io.dart';
 
 /// Returns the current device locale
 Locale? getCurrentLocale() 
 {
-    return _localeFromString(Platform.localeName);
+    WidgetsFlutterBinding.ensureInitialized();
+    return WidgetsBinding.instance.platformDispatcher.locale;
 }
 
 Locale? _localeFromString(String code) 

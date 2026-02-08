@@ -1,4 +1,4 @@
-library flutter_translate;
+library remote_flutter_translate;
 
 export 'src/utils/utils.dart';
 export 'src/services/localization.dart';
@@ -8,3 +8,4 @@ export 'src/widgets/localized_app.dart';
 export 'src/widgets/localized_app_state.dart';
 export 'src/interfaces/translate_preferences.dart';
 export 'src/utils/device_locale.dart';
+export 'src/services/translation_overrides.dart';

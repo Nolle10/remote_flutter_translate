@@ -1,0 +1,32 @@
+{
+  "ai_notice": "Traducción generada por IA; puede ser incorrecta. Tenlo en cuenta.",
+  "app_bar": {
+    "title": "Sobrescritura: Bienvenido a la página de inicio"
+  },
+  "button": {
+    "cancel": "Sobrescritura: Cancelar",
+    "change_language": "Sobrescritura: Cambiar idioma"
+  },
+  "language": {
+    "name": {
+      "en": "Sobrescritura: Inglés",
+      "es": "Sobrescritura: Español",
+      "fa": "Sobrescritura: Persa",
+      "ar": "Sobrescritura: Arábica",
+      "ru": "Sobrescritura: Ruso"
+    },
+    "selected_message": "Sobrescritura: El idioma seleccionado actualmente es {language}",
+    "selection": {
+      "message": "Sobrescritura: Por favor seleccione un idioma de la lista",
+      "title": "Sobrescritura: Selección de idioma"
+    }
+  },
+  "plural": {
+    "demo": {
+      "zero": "Sobrescritura: Por favor, comience a presionar el botón 'más'.",
+      "one": "Sobrescritura: Has pulsado el botón una vez.",
+      "two": "Sobrescritura: Has pulsado el botón dos veces.",
+      "other": "Sobrescritura: Ha pulsado el botón {{value}} veces."
+    }
+  }
+}

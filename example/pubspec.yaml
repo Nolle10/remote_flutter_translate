@@ -1,7 +1,7 @@
 name: example
-description: Example project for the flutter_translate library
+description: Example project for the remote_flutter_translate library
 publish_to: none
-version: 4.1.0
+version: 1.0.0
 
 environment:
   sdk: '>=2.17.0 <4.0.0'
@@ -11,7 +11,10 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_translate:
+  remote_flutter_translate: ^1.0.0
+
+dependency_overrides:
+  remote_flutter_translate:
     path: ../
 
 flutter:
@@ -19,3 +22,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/i18n/
+    - assets/i18n_overrides/

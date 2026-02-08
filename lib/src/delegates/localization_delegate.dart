@@ -1,9 +1,10 @@
 import 'package:flutter/widgets.dart';
-import 'package:intl/intl.dart';
-import 'package:flutter_translate/flutter_translate.dart';
-import 'package:flutter_translate/src/constants/constants.dart';
-import 'package:flutter_translate/src/services/locale_service.dart';
-import 'package:flutter_translate/src/validators/configuration_validator.dart';
+import 'package:remote_flutter_translate/remote_flutter_translate.dart';
+import 'package:remote_flutter_translate/src/constants/constants.dart';
+import 'package:remote_flutter_translate/src/services/locale_service.dart';
+import 'package:remote_flutter_translate/src/utils/intl_shim.dart';
+import 'package:remote_flutter_translate/src/validators/configuration_validator.dart';
+import 'package:remote_flutter_translate/src/services/translation_overrides.dart';
 
 class LocalizationDelegate extends LocalizationsDelegate<Localization>
 {
@@ -16,12 +17,19 @@ class LocalizationDelegate extends LocalizationsDelegate<Localization>
     final Map<Locale, String> supportedLocalesMap;
 
     final ITranslatePreferences? preferences;
+    final TranslationOverrides? translationOverrides;
 
     LocaleChangedCallback? onLocaleChanged;
 
     Locale get currentLocale => _currentLocale!;
 
-    LocalizationDelegate._(this.fallbackLocale, this.supportedLocales, this.supportedLocalesMap, this.preferences);
+    LocalizationDelegate._(
+        this.fallbackLocale,
+        this.supportedLocales,
+        this.supportedLocalesMap,
+        this.preferences,
+        this.translationOverrides,
+    );
 
     Future changeLocale(Locale newLocale) async
     {
@@ -31,13 +39,17 @@ class LocalizationDelegate extends LocalizationsDelegate<Localization>
 
         if(_currentLocale == locale) return;
 
-        var localizedContent = await LocaleService.getLocaleContent(locale, supportedLocalesMap);
+        var localizedContent = await LocaleService.getLocaleContent(
+            locale,
+            supportedLocalesMap,
+            overrides: translationOverrides,
+        );
 
         Localization.load(localizedContent);
 
         _currentLocale = locale;
 
-        Intl.defaultLocale = _currentLocale?.languageCode;
+        IntlShim.defaultLocale = _currentLocale?.languageCode;
 
         if(onLocaleChanged != null)
         {
@@ -72,7 +84,9 @@ class LocalizationDelegate extends LocalizationsDelegate<Localization>
         required String fallbackLocale,
         required List<String> supportedLocales,
         String basePath = Constants.localizedAssetsPath,
-        ITranslatePreferences? preferences}) async
+        ITranslatePreferences? preferences,
+        TranslationOverrides? translationOverrides,
+    }) async
     {
         WidgetsFlutterBinding.ensureInitialized();
 
@@ -82,7 +96,7 @@ class LocalizationDelegate extends LocalizationsDelegate<Localization>
 
         ConfigurationValidator.validate(fallback, locales);
 
-        var delegate = LocalizationDelegate._(fallback, locales, localesMap, preferences);
+        var delegate = LocalizationDelegate._(fallback, locales, localesMap, preferences, translationOverrides);
 
         if(!await delegate._loadPreferences())
         {

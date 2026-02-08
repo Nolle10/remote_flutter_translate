@@ -1,0 +1,32 @@
+{
+  "ai_notice": "AI-generated translation; may be inaccurate. Please take this into account.",
+  "app_bar": {
+    "title": "Override: Welcome to the home page"
+  },
+  "button": {
+    "cancel": "Override: Cancel",
+    "change_language": "Override: Change Language"
+  },
+  "language": {
+    "name": {
+      "en": "Override: English",
+      "es": "Override: Spanish",
+      "fa": "Override: Persian",
+      "ar": "Override: Arabic",
+      "ru": "Override: Russian"
+    },
+    "selected_message": "Override: Currently selected language is {language}",
+    "selection": {
+      "message": "Override: Please select a language from the list",
+      "title": "Override: Language Selection"
+    }
+  },
+  "plural": {
+    "demo": {
+      "zero": "Override: Please start pushing the 'plus' button.",
+      "one": "Override: You have pushed the button one time.",
+      "two": "Override: You have pushed the button two times.",
+      "other": "Override: You have pushed the button {{value}} times."
+    }
+  }
+}

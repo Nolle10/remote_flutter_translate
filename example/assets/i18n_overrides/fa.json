@@ -1,0 +1,32 @@
+{
+  "ai_notice": "ترجمه توسط هوش مصنوعی تولید شده است؛ ممکن است نادرست باشد. لطفاً این را در نظر بگیرید.",
+  "app_bar": {
+    "title": "بازنویسی: Welcome to the home page"
+  },
+  "button": {
+    "cancel": "بازنویسی: Cancel",
+    "change_language": "بازنویسی: Change Language"
+  },
+  "language": {
+    "name": {
+      "en": "بازنویسی: English",
+      "es": "بازنویسی: Spanish",
+      "fa": "بازنویسی: Persian",
+      "ar": "بازنویسی: Arabic",
+      "ru": "بازنویسی: Russian"
+    },
+    "selected_message": "بازنویسی: Currently selected language is {language}",
+    "selection": {
+      "message": "بازنویسی: Please select a language from the list",
+      "title": "بازنویسی: Language Selection"
+    }
+  },
+  "plural": {
+    "demo": {
+      "zero": "بازنویسی: Please start pushing the 'plus' button.",
+      "one": "بازنویسی: You have pushed the button one time.",
+      "two": "بازنویسی: You have pushed the button two times.",
+      "other": "بازنویسی: You have pushed the button {{value}} times."
+    }
+  }
+}

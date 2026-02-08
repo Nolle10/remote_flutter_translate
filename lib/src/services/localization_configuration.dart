@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_translate/flutter_translate.dart';
-import 'package:flutter_translate/src/constants/constants.dart';
+import 'package:remote_flutter_translate/remote_flutter_translate.dart';
+import 'package:remote_flutter_translate/src/constants/constants.dart';
 import 'locale_file_service.dart';
 
 class LocalizationConfiguration

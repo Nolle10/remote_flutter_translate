@@ -1,6 +1,6 @@
 
-import 'package:flutter_translate/src/constants/constants.dart';
-import 'package:intl/intl.dart';
+import 'package:remote_flutter_translate/src/constants/constants.dart';
+import 'package:remote_flutter_translate/src/utils/intl_shim.dart';
 
 class Localization
 {
@@ -32,7 +32,7 @@ class Localization
     {
         final forms = _getAllPluralForms(key, _translations);
 
-        return Intl.plural(
+        return IntlShim.plural(
             value,
             zero: _putArgs(forms[Constants.pluralZero], value, args: args),
             one: _putArgs(forms[Constants.pluralOne], value, args: args),
